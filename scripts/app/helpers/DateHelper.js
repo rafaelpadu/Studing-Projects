@@ -8,9 +8,9 @@ class DateHelper{
     }
 
     static textoParaData(texto) {
-        if(!/\d{4}-\d{2}-\d{2}/.test(texto))
-            throw new Error('Deve estar no formtado aaaa-mm-dd');
-        return new Date(...texto.split('-').map((mes,dia) => mes - dia % 2))
+        if(!/\d{2}\/\d{2}\/\d{4}/.test(texto))
+            throw new Error('Deve estar no formtado dd-mm-aaaa');
+        return new Date(...texto.split('/').reverse().map((mes,dia) => mes - dia % 2))
     }
 
 }   
